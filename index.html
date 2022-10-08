@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>direct Child Selector > </title>
+        <meta charset="utf-8">
+        <style>
+            /*
+            parent > child {
+
+            }
+            */
+            .p{
+                /* state 1 */
+                width: 400px;
+                height: 400px;
+                background: red;
+                transition:  5s;
+                display: inline-block;
+            }
+            .p:hover{
+                /* state 2 */
+                background: orange;
+            }
+            .p > .c{
+                /* state 1 */
+                width: 200px;
+                height: 200px;
+                background: green;
+                transition:  3s;
+            }
+            .p > .c:hover{
+                /* state 2 */
+                background: blue;
+            }
+            [data-parent="p"] {
+                /* state 1 */
+                width: 500px;
+                height: 500px;
+                background: purple;
+                display: inline-block;
+            }
+            [data-parent="p"] > [data-child="c"] {
+                /* state 1 */
+                width: 100px;
+                height: 100px;
+                background: brown;
+                display: inline-block;
+                transition: 5s linear 0.1s;
+                border-radius: 100px;
+                transform: translate(0px,0px);
+            }
+            [data-parent="p"]:hover > [data-child="c"] {
+                /* state 2 */
+                background: yellow;
+                transform: translate(0px,300px);
+            }
+            .c2{
+                transition: 5s linear 0.2s !important;
+            }
+            .c3{
+                transition: 5s linear 0.3s !important;
+            }
+            .c4{
+                transition: 5s linear 0.4s !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="p">
+            <div class="c"></div>
+        </div>
+
+        <div data-parent="p">
+            <div data-child="c"></div>
+            <div data-child="c" class="c2"></div>
+            <div data-child="c" class="c3"></div>
+            <div data-child="c" class="c4"></div>
+            
+        </div>
+    </body>
+</html>
